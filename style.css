@@ -1,29 +1,33 @@
-/* Palette lifted from the is-a.dev website */
+/* catppuccin mocha palette, page structure originally from is-a.dev (mit) */
+
 :root {
-  --header-bg: linear-gradient(90deg, #1a1331, var(--hover-bg));
-  --accent: #7041ff;
-  --body-fg: #d1c4ff;
-  --hover-bg: #4e3aa3;
-  --hover-accent: #9b7dff;
-  --styled-border:
-    conic-gradient(#0f0c19 0 0) padding-box,
-    linear-gradient(to right, #1a1331 20%, #4e3aa3 80%) border-box;
-  --card-bg: rgba(112, 65, 255, 0.08);
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+  --surface0: #313244;
+  --surface1: #45475a;
+  --surface2: #585b70;
+  --text: #cdd6f4;
+  --subtext: #a6adc8;
+  --accent: #cba6f7;
+  --accent-alt: #b4befe;
+  --red: #f38ba8;
+  --header-bg: linear-gradient(100deg, var(--mantle), #2b2540 60%, #37305a);
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #0f0c19;
-  color: var(--body-fg);
+  background-color: var(--base);
+  color: var(--text);
   font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
 }
 
 body {
   padding: 20px;
-  background-image: radial-gradient(circle at 50% 0%, rgba(112, 65, 255, 0.12), transparent 55%);
+  background-image: radial-gradient(circle at 50% 0%, rgba(203, 166, 247, 0.1), transparent 55%);
   background-attachment: fixed;
 }
 
@@ -32,7 +36,7 @@ body {
 }
 
 ::selection {
-  color: #fff;
+  color: var(--base);
   background: var(--accent);
 }
 
@@ -40,23 +44,24 @@ body {
   width: 12px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f0c19;
+  background: var(--base);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  background: var(--surface2);
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--hover-accent);
+  background: var(--accent);
 }
 
 main {
   padding: 2em;
   margin: 1em auto;
   max-width: 900px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  background: rgba(24, 24, 37, 0.75);
+  border: 1px solid var(--surface0);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
 }
 
 /* Header / avatar icon */
@@ -67,8 +72,9 @@ main {
   text-align: left;
   background: var(--header-bg);
   padding: 1rem 1.25rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--surface1);
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
 .avatar-link {
@@ -81,7 +87,7 @@ main {
 }
 .avatar-link:hover,
 .avatar-link:focus-visible {
-  background: var(--hover-accent);
+  background: var(--accent-alt);
   transform: translateY(-2px);
 }
 .avatar {
@@ -89,7 +95,7 @@ main {
   width: 88px;
   height: 88px;
   border-radius: 50%;
-  background: var(--hover-bg);
+  background: var(--surface0);
 }
 
 .banner-text {
@@ -100,30 +106,31 @@ main {
 .domain {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text);
   letter-spacing: -0.02em;
 }
 .domain span {
-  color: var(--hover-accent);
+  color: var(--accent);
 }
 .banner-sub {
   font-size: 0.9rem;
-  opacity: 0.8;
+  color: var(--subtext);
 }
 .handle {
   font-family: "Ubuntu Mono", "SFMono-Regular", Consolas, monospace;
-  color: var(--hover-accent);
+  color: var(--accent-alt);
 }
 
 h1 {
   font-size: 2.5rem;
-  color: var(--body-fg);
+  color: var(--text);
   text-align: center;
   background: var(--header-bg);
+  border: 1px solid var(--surface1);
   padding: 15px;
-  border-radius: 5px;
+  border-radius: 8px;
   margin: 20px 0 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
 h2.tagline {
@@ -132,7 +139,7 @@ h2.tagline {
   font-size: 1.35rem;
   font-weight: 400;
   text-align: center;
-  color: var(--body-fg);
+  color: var(--subtext);
   border: 0;
 }
 h2.tagline span {
@@ -151,21 +158,21 @@ h2 {
   margin-top: 2.25rem;
   font-size: 1.5rem;
   color: var(--accent);
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 1px solid var(--surface1);
   padding-bottom: 5px;
 }
 
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
 }
 a:hover {
-  color: var(--hover-accent);
+  color: var(--accent-alt);
   text-decoration: underline;
 }
 a:focus-visible {
-  outline: 2px solid var(--hover-accent);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 3px;
 }
@@ -185,9 +192,9 @@ a:focus-visible {
 }
 .skill {
   padding: 0.85rem 1rem;
-  border: 4px solid transparent;
-  border-radius: 6px;
-  background: var(--styled-border);
+  background: var(--mantle);
+  border: 1px solid var(--surface1);
+  border-radius: 8px;
 }
 .skill-head {
   display: flex;
@@ -197,18 +204,18 @@ a:focus-visible {
   margin-bottom: 0.5rem;
 }
 .skill-name {
-  color: #fff;
+  color: var(--text);
   font-weight: 700;
 }
 .skill-level {
   font-size: 0.78rem;
   font-family: "Ubuntu Mono", "SFMono-Regular", Consolas, monospace;
-  opacity: 0.8;
+  color: var(--subtext);
 }
 .bar {
   height: 6px;
   border-radius: 999px;
-  background: rgba(209, 196, 255, 0.15);
+  background: var(--surface0);
   overflow: hidden;
 }
 .bar span {
@@ -216,7 +223,7 @@ a:focus-visible {
   width: var(--level);
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--accent), var(--hover-accent));
+  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
 }
 
 /* Projects */
@@ -229,18 +236,19 @@ a:focus-visible {
   display: flex;
   flex-direction: column;
   padding: 1.1rem 1.2rem;
-  background: var(--card-bg);
-  border: 1px solid rgba(155, 125, 255, 0.35);
+  background: var(--mantle);
+  border: 1px solid var(--surface1);
   border-radius: 8px;
 }
 .card h3 {
   margin: 0;
-  color: #fff;
+  color: var(--text);
   font-size: 1.2rem;
 }
 .card p {
   padding-left: 0;
   border-left: 0;
+  color: var(--subtext);
   font-size: 0.94rem;
 }
 .card-top {
@@ -254,8 +262,8 @@ a:focus-visible {
 .fork {
   font-family: "Ubuntu Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.75rem;
-  color: var(--hover-accent);
-  background: rgba(112, 65, 255, 0.15);
+  color: var(--accent);
+  background: rgba(203, 166, 247, 0.12);
   border-radius: 999px;
   padding: 0.1rem 0.55rem;
   white-space: nowrap;
@@ -271,8 +279,8 @@ a:focus-visible {
   font-family: "Ubuntu Mono", "SFMono-Regular", Consolas, monospace;
   padding: 0.1rem 0.5rem;
   border-radius: 4px;
-  background: var(--hover-bg);
-  color: #f2ecff;
+  background: var(--surface1);
+  color: var(--text);
 }
 .card-link {
   font-weight: 700;
@@ -298,10 +306,10 @@ a:focus-visible {
 footer {
   margin-top: 2.5rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(155, 125, 255, 0.3);
+  border-top: 1px solid var(--surface1);
   text-align: center;
   font-size: 0.85rem;
-  opacity: 0.85;
+  color: var(--subtext);
 }
 footer p {
   padding: 0;
@@ -309,7 +317,7 @@ footer p {
   margin-bottom: 0.25rem;
 }
 .heart {
-  color: var(--accent);
+  color: var(--red);
 }
 
 @media (max-width: 716px) {
